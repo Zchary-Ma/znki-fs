@@ -2,6 +2,9 @@ syntax="proto3";
 
 package proto;
 
+// FIXME Cannot resolve import 'general.proto'
+import  "general.proto";
+
 message User {
   string id = 1;
   string name = 2;
@@ -9,10 +12,6 @@ message User {
   string phone = 4;
   string avatar = 5;
   string password = 6;
-}
-
-message Id{
-  string id = 1;
 }
 
 service UserService {
