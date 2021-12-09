@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package proto;
+
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string phone = 4;
+  string avatar = 5;
+  string password = 6;
+}
+
+message Id{
+  string id = 1;
+}
+
+service UserService {
+  rpc GetUser(Id) returns (User);
+  rpc CreateUser(User) returns (User);
+  rpc UpdateUser(User) returns (User);
+  rpc DeleteUser(Id) returns (User);
+}
