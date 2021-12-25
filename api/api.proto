@@ -1,9 +1,21 @@
 syntax="proto3";
 
-package proto;
+package znki_fs.service.v1.api;
 
-// FIXME Cannot resolve import 'general.proto'
-import  "general.proto";
+option go_package="github.com/znkisoft/znki-fs/service/v1/api";
+
+import "google/protobuf/empty.proto";
+
+
+
+
+message Id{
+  string id = 1;
+}
+
+message ServerStatus {
+  string status = 1;
+}
 
 message User {
   string id = 1;
@@ -19,4 +31,8 @@ service UserService {
   rpc CreateUser(User) returns (User);
   rpc UpdateUser(User) returns (User);
   rpc DeleteUser(Id) returns (User);
+}
+
+service HealthService {
+  rpc CheckHealth(google.protobuf.Empty) returns(ServerStatus);
 }
